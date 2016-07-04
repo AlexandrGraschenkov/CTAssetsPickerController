@@ -542,6 +542,10 @@ NSString * const CTAssetsPickerDidDeselectAssetNotification = @"CTAssetsPickerDi
     
     NSString *format;
     
+    if ([self.delegate respondsToSelector:@selector(assetsPickerController:titleForSelectedAssets:)]) {
+        return [self.delegate assetsPickerController:self titleForSelectedAssets:self.selectedAssets];
+    }
+    
     if (photoSelected && videoSelected)
         format = CTAssetsPickerLocalizedString(@"%@ Items Selected", nil);
     

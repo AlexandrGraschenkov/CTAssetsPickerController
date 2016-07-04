@@ -341,6 +341,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)assetsPickerController:(CTAssetsPickerController *)picker didUnhighlightAsset:(PHAsset *)asset;
 
 
+- (NSString *)assetsPickerController:(CTAssetsPickerController *)picker titleForSelectedAssets:(NSArray<PHAsset*> *)assets;
 
 
 /**

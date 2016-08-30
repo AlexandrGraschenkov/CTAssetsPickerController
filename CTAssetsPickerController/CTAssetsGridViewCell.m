@@ -174,7 +174,7 @@
         }];
         
         [self.disabledImageView autoCenterInSuperview];
-
+        
         self.didSetupConstraints = YES;
     }
     
@@ -185,6 +185,14 @@
 - (void)bind:(PHAsset *)asset
 {
     self.asset = asset;
+    
+    const NSUInteger minSize = 1000;
+    self.selectedView.borderWidth = _selectedBorderWidth.floatValue;
+    if (asset.pixelHeight < minSize || asset.pixelWidth < minSize) {
+        self.selectedView.tintColor = _selectedBorderColorLowQuality;
+    } else {
+        self.selectedView.tintColor = _selectedBorderColorHiQuality;
+    }
     
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];

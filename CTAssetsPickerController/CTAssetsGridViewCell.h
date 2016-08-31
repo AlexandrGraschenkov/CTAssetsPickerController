@@ -39,6 +39,10 @@
 @property (nonatomic, weak, nullable) UIColor *disabledColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic, weak, nullable) UIColor *highlightedColor UI_APPEARANCE_SELECTOR;
 
+@property (nonatomic, weak, nullable) UIColor *selectedBorderColorLowQuality UI_APPEARANCE_SELECTOR;
+@property (nonatomic, weak, nullable) UIColor *selectedBorderColorHiQuality UI_APPEARANCE_SELECTOR;
+@property (nonatomic, weak, nullable) NSNumber *selectedBorderWidth UI_APPEARANCE_SELECTOR;
+
 - (void)bind:(nonnull PHAsset *)asset;
 
 @end

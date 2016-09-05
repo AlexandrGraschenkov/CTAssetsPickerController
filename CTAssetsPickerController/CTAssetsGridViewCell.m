@@ -144,6 +144,9 @@
 - (void)setSelected:(BOOL)selected
 {
     super.selected = selected;
+    if (selected==YES) {
+        [self setupSelectionAppearance];
+    }
     self.selectedView.hidden = !selected;
 }
 
@@ -186,18 +189,24 @@
 {
     self.asset = asset;
     
-    const NSUInteger minSize = 1000;
-    self.selectedView.borderWidth = _selectedBorderWidth.floatValue;
-    if (asset.pixelHeight < minSize || asset.pixelWidth < minSize) {
-        self.selectedView.tintColor = _selectedBorderColorLowQuality;
-    } else {
-        self.selectedView.tintColor = _selectedBorderColorHiQuality;
-    }
+    [self setupSelectionAppearance];
     
     [self setNeedsUpdateConstraints];
     [self updateConstraintsIfNeeded];
 }
 
+- (void)setupSelectionAppearance{
+    if (self.asset) {
+        const NSUInteger minSize = _hqMinSideSize ? _hqMinSideSize.integerValue : 2300;
+        
+        self.selectedView.borderWidth = _selectedBorderWidth.floatValue;
+        if (self.asset.pixelHeight < minSize || self.asset.pixelWidth < minSize) {
+            self.selectedView.tintColor = _selectedBorderColorLowQuality;
+        } else {
+            self.selectedView.tintColor = _selectedBorderColorHiQuality;
+        }
+    }
+}
 
 #pragma mark - Accessibility Label
 

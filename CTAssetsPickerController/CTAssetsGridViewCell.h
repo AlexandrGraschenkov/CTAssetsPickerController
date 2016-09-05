@@ -39,6 +39,7 @@
 @property (nonatomic, weak, nullable) UIColor *disabledColor UI_APPEARANCE_SELECTOR;
 @property (nonatomic, weak, nullable) UIColor *highlightedColor UI_APPEARANCE_SELECTOR;
 
+@property (nonatomic, strong, nullable) NSNumber *hqMinSideSize UI_APPEARANCE_SELECTOR;
 @property (nonatomic, weak, nullable) UIColor *selectedBorderColorLowQuality UI_APPEARANCE_SELECTOR;
 @property (nonatomic, weak, nullable) UIColor *selectedBorderColorHiQuality UI_APPEARANCE_SELECTOR;
 @property (nonatomic, weak, nullable) NSNumber *selectedBorderWidth UI_APPEARANCE_SELECTOR;
